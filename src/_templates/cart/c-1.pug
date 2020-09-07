@@ -1,63 +1,67 @@
-section.cart-page
+section.cart-page.cart-list-page
 	.container
 		.container-1190px
 			.cart__wrapper
 				h3.title GIỎ HÀNG CỦA TÔI
 				.cart--table
 					table
-						tr
-							th SẢN PHẨM
-							th ĐƠN GIÁ
-							th SỐ LƯỢNG
-							th TỔNG GIÁ
-						-for(var i =0; i < 3; i++)
+						thead
 							tr
-								td.product 
-									.close
+								th SẢN PHẨM
+								th ĐƠN GIÁ
+								th SỐ LƯỢNG
+								th TỔNG GIÁ
+						tbody
+							-for(var i =0; i < 3; i++)
+								tr
+									td(data-title="SẢN PHẨM").product 
+										.close.remove-cart(type='button' value='Xóa' data-pid="11223344" data-propertyid="11223344" data-url="/xoa-khoi-gio-hang")
+										.table-content
+											.img
+												img.object-cover.fullsize(src="./assets/images/love/love-item.png", alt="item")
+											.desc
+												.state
+													p.lcl.lcl-1 Yến sào cao cấp
+												.state
+													img.lazyload.blur-up(src="./assets/images/love/check-cart.png", alt="check")
+													p Còn Hàng
+												.state
+													img.lazyload.blup-up(src="./assets/images/love/love.png", alt="love")
+													p Yêu Thích
+											
+									td(data-title="GIÁ").price
+										.table-content
+											p 900.000 VNĐ
+									td(data-title="SỐ LƯỢNG").num
+										.table-content
+											.quantity-input
+												span.minus.downQuantity(data-pid="11223344" data-propertyid="11223344" data-url-update="/cap-nhat-gio-hang") -
+												input.quantity(value="5" readonly)
+												span.plus.upQuantity(data-pid="11223344" data-propertyid="11223344" data-url-update="/cap-nhat-gio-hang") +
+									td(data-title="TỔNG GIÁ").total
+										.table-content
+											p 900.000 VNĐ
+							tr.tempprice
+								td.wishlist
+									a(href="javascript:;", data-fancybox, data-options="{'touch' : false}", data-src="#wishlist") + Thêm sản phẩm từ danh sách yêu thích
+								td
+									p Tạm tính
+								td(colspan=2)
+									p 2.700.000 VNĐ
+							tr.total
+								td(colspan=4)
 									.table-content
-										.img
-											img.ofcv.fullsize(src="./assets/images/love/love-item.png", alt="item")
-										.desc
-											.state
-												p Yến sào cao cấp
-											.state
-												img.lazyload.blur-up(src="./assets/images/love/check-cart.png", alt="check")
-												p Còn Hàng
-											.state
-												img.lazyload.blup-up(src="./assets/images/love/love.png", alt="love")
-												p Yêu Thích
-										
-								td.price
-									.table-content
-										p 900.000 VNĐ
-								td.num
-									.table-content
-										.quantity-input
-											span.minus -
-											input.quantity(value="5" readonly)
-											span.plus +
-								td.total
-									.table-content
-										p 900.000 VNĐ
-						tr.tempprice
-							td.wishlist
-								a(href="javascript:;", data-fancybox, data-options="{'touch' : false}", data-src="#wishlist") + Thêm sản phẩm từ danh sách yêu thích
-							td
-								p Tạm tính
-							td(colspan=2)
-								p 2.700.000 VNĐ
-						tr
-							td(colspan=4)
-								.table-content
-									.desc-total
-										strong Tổng Tiền
-										p (Tổng số tiền thanh toán)
-									.price-total
-										p 2.700.000 VNĐ
+										.desc-total
+											strong Tổng Tiền
+											p (Tổng số tiền thanh toán)
+										.price-total
+											p 2.700.000 VNĐ
 			.cart-func
-				button.btn.btn-cart TIẾP TỤC MUA HÀNG
+				button.btn.btn-cart
+					a(href="") TIẾP TỤC MUA HÀNG
 				button.btn.btn-cart XÓA GIỎ HÀNG
-				button.btn.btn-cart TIẾN HÀNH THANH TOÁN
+				button.btn.btn-cart
+					a(href="") TIẾN HÀNH THANH TOÁN
 			.seemore
 				h3 Sản Phẩm Khác
 				.product__wrapper.text-center
@@ -88,7 +92,7 @@ section.cart-page
 					-for(var i=0;i< 3; i++)
 						.wrapper.row
 							.img.col-2
-								img.lazyload.blur-up.ofcv(src="./assets/images/love/love-item.png", alt="love")
+								img.lazyload.blur-up.object-cover(src="./assets/images/love/love-item.png", alt="love")
 							.desc.col-6
 								p Yến sào cao cấp
 								p 900.000 VNĐ

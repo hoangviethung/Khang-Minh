@@ -44,10 +44,13 @@
 	}
 }
 .btn-google {
+	padding: 0 10px;
 	background: #DB4437;
 	color: white;
 	height: 40px;
-
+	svg {
+		margin-right: 10px;
+	}
 	span {
 		font-size: 1.4rem;
 		border-left: 1px solid white
@@ -55,11 +58,13 @@
 }
 
 .btn-facebook {
+	padding: 0 10px;
 	background: #3C5A99;
 	color: white;
 	height: 40px;
-	margin-bottom: 10px;
-
+	svg {
+		margin-right: 10px;
+	}
 	span {
 		font-size: 1.4rem;
 		border-left: 1px solid white
@@ -94,16 +99,27 @@
 	line-height: 2.7rem;
 	color: #fff;
 	padding: 0 10px;
+	@media (max-width: 1024px) {
+		font-size: 1.5rem;
+	}
 }
 .btn-cart  {
 	height: 40px;
 	font-size: 1.8rem;
 	font-family: Roboto-Light;
 	line-height: 2.7rem;
-	color: #fff;
 	padding: 0 35px;
 	margin-left: 10px;
 	background: #a62c32;
+	color: #fff;
+	a {
+		color: #fff;
+	}
+	@media (max-width: 767.98px) {
+		height: 25px;
+		line-height: normal;
+		padding: 0 10px !important;
+	}
 }
 .fancybox-button.fancybox-close-small {
 	padding: 0 !important;
@@ -119,6 +135,9 @@
 		path {
 			fill: #fff
 		}
+	}
+	@media (max-width: 767.98px) {
+		display: none !important;
 	}
 }
 .fancybox-slide--html .fancybox-close-small {

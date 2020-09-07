@@ -34,13 +34,16 @@ header {
 .menu {
 	position: relative;
 	display: inline-block;
-	width: 30px;
+	width:	24px;
 	height: 30px;
 	background: #fff;
 	border-radius: 5px;
 	overflow: hidden;
 	@media (min-width: 1025px) {
 		display: none;
+	}
+	@media (max-width: 575.98px) {
+		width: 2rem;
 	}
 }
 .menu span {
@@ -58,9 +61,9 @@ header {
 .menu span,
 .menu span:before,
 .menu span:after {
-	width: 14px;
+	width: 100%;
 	height: 2px;
-	background-color: #a62c32;
+	background-color: #5d5d5d;
 	display: block;
 }
 .menu span:before {
@@ -122,18 +125,13 @@ header {
 	margin-bottom: 95px;
 	@media (max-width: 1024px) {
 		margin-bottom: 0;
+		background: #fff;
 		.wrapper__utilities {
-			// justify-content: flex-end;
-			// .left {
-			// 	-ms-flex: unset !important;
-			// 	flex: unset !important;
-			// 	max-width: unset !important;
-			// }
-			// .right {
-			// 	-ms-flex: unset !important;
-			// 	flex: unset !important;
-			// 	max-width: unset !important;
-			// }
+			svg {
+				.cls-1 {
+					fill: #5d5d5d !important;
+				}
+			}
 		}
 	}
 }
@@ -144,7 +142,7 @@ header {
 	flex-wrap: wrap;
 	align-items: center;
 	@media (max-width: 1024px) {
-		height: 70px;
+		height: 104px;
 	}
 	.left {
 		position: relative;
@@ -202,6 +200,11 @@ header {
 				border: none;
 				border-bottom: 1px solid #fff;
 				color: #fff;
+				@media (max-width: 1024px) {
+					border-bottom: 1px solid #5d5d5d;
+					background: #fff !important;
+					color: #5d5d5d !important;
+				}
 			}
 		}
 		@media (max-width: 1024px) {
@@ -226,7 +229,7 @@ header {
 				height: 1.7rem;
 				vertical-align: baseline;
 				.cls-1 {
-					fill: #fff !important;
+					fill: #fff;
 				}
 				@media (max-width: 850px) {
 					width: 2.7rem;
@@ -241,6 +244,9 @@ header {
 				padding-left: 5px;
 				color: #fff;
 				font-size: 1.5rem;
+				@media (max-width: 1024px) {
+					color: #5d5d5d;
+				}
 			}
 			> div {
 				margin-right: 15px;
@@ -273,6 +279,7 @@ header {
 			}
 		}
 		.account-item {
+			cursor: pointer;
 			position: relative;
 			.account-box {
 				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -307,9 +314,7 @@ header {
 			}
 		}
 	}
-	@media (max-width: 1024px) {
-		padding-right: 40px;
-	}
+
 }
 .header__logo {
 	position: relative;
@@ -369,7 +374,7 @@ header {
 			height: 100%;
 			a {
 				color: #2b2b2b;
-				display: flex;
+				display: inline-flex;
 				height: 100%;
 				align-items: center;
 				align-self: center;
@@ -395,12 +400,12 @@ header {
 					transform: translateX(-50%);
 					display: inline-block;
 					width: 15px;
-					height: 13px;
+					height: 0;
 					content: "";
-					border-top: 0px solid #a62c32;
-					border-right: 0px solid transparent;
-					border-top: 0px solid #a62c32;
-					border-left: 0px solid transparent;
+					border-right: 8px solid transparent;
+					border-top: 15px solid #a62c32;
+					border-left: 8px solid transparent;
+					opacity: 0;
 				}
 				ul.nav__wrapper {
 					pointer-events: none;
@@ -434,12 +439,9 @@ header {
 						z-index: 700;
 						&::after {
 							transition: 0.3s all ease-in-out;
-							border-right: 8px solid transparent;
-							border-top: 15px solid #a62c32;
-							border-left: 8px solid transparent;
-							content: "";
+							opacity: 1;
+							height: 13px;
 						}
-
 						ul.nav__wrapper {
 							pointer-events: all;
 							opacity: 1;
@@ -455,7 +457,7 @@ header {
 			}
 		}
 		@media (max-width: 1024px) {
-			width: 40%;
+			width: 60%;
 			display: unset;
 			flex-wrap: unset;
 			align-items: unset;
@@ -465,7 +467,7 @@ header {
 			background: #fff;
 			height: 100%;
 			transition: 0.3s all ease-in-out;
-			top: 70px;
+			top: 104px;
 			> li {
 				padding: 10px;
 				height: auto;
@@ -475,27 +477,40 @@ header {
 					justify-content: flex-start;
 				}
 			}
+			.ishavesubmenu {
+				 > a {
+					 position: relative;
+					&::after {
+						position: absolute;
+						top: 50%;
+						left: 105%;
+						transform: translateY(-50%);
+						display: inline-block;
+						width: 10px;
+						height: 5px;
+						content: "";
+						border-right: 5px solid transparent;
+						border-top: 10px solid #a62c32;
+						border-left: 5px solid transparent;
+					}
+				 }
+			}
 			&.show {
 				right: 0;
 				transition: 0.3s all ease-in-out;
 			}
 		}
+		@media (max-width: 575.98px) {
+			width: 100%;
+		}
 	}
 	@media (max-width: 1024px) {
 		position: absolute;
 		right: 0;
-		top: 20px;
+		top: 65px;
 		border: unset;
 	}
-	// @media (max-width: 575.98px) {
-	// 	position: relative;
-	// 	top: unset;
-	// 	right: unset;
-	// 	.container-1190px {
-	// 		display: flex;
-	// 		justify-content: flex-end;
-	// 	}
-	// }
+
 }
 
 .background-submenu {
@@ -609,6 +624,9 @@ header {
 			background: url("../assets/images/header/1x/before-bottom.png")
 				no-repeat;
 		}
+		@media (max-width: 767.98px) {
+			padding: 30px 10px;	
+		}
 	}
 	.fancybox-button.fancybox-close-small {
 		background: #a62c32;
@@ -634,6 +652,9 @@ header {
 				color: #a62c32;
 				line-height: 2.7rem;
 			}
+			@media (max-width: 767.98px) {
+				margin-bottom: 20px;
+			}
 		}
 		.social {
 			display: flex;
@@ -650,7 +671,11 @@ header {
 				padding-left: 10px;
 				padding-right: 10px;
 			}
+			@media (max-width: 767.98px) {
+				max-width: 80%;
+			}
 		}
+		
 	}
 }
 
@@ -698,7 +723,7 @@ header {
 .dropdown {
 	width: 100%;
 	position: relative;
-	color: white;
+	color: #000;
 	text-transform: uppercase;
 	font-size: 1.8rem;
 	font-weight: bold;
@@ -706,18 +731,18 @@ header {
 }
 .dropdown__select {
 	border-radius: inherit;
-	&::after {
-		position: absolute;
-		top: 100%;
-		left: 50%;
-		transform: translateX(-50%);
-		background: red;
-		width: 10px;
-		height: 10px;
-		border-left: 10px solid transparent;
-		border-right: 10px solid transparent;
-		border-bottom: 10px solid red;
-	}
+	// &::after {
+	// 	position: absolute;
+	// 	top: 100%;
+	// 	left: 50%;
+	// 	transform: translateX(-50%);
+	// 	background: red;
+	// 	width: 10px;
+	// 	height: 10px;
+	// 	border-left: 10px solid transparent;
+	// 	border-right: 10px solid transparent;
+	// 	border-bottom: 10px solid red;
+	// }
 }
 .dropdown__list {
 	margin-top: 2.5rem;
@@ -749,7 +774,7 @@ header {
 	justify-content: center;
 	transition: background-color 0.2s linear;
 	a {
-		color: #fff !important;
+		color: #fff;
 	}
 }
 .dropdown__item:first-child {
@@ -757,14 +782,12 @@ header {
 	position: relative;
 }
 .custom-display {
-	@media (max-width: 850px) {
+	@media (max-width: 900px) {
 		display: none;
 	}
 }
 
 .navBar--lv1 {
-
-
 	@media (max-width: 1024.98px) {
 		position: fixed !important;
 		overflow-y: scroll;
